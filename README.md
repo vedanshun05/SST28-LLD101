@@ -1,4 +1,4 @@
-# � SST28-LLD101: Low-Level Design Exercises
+# 🚀 SST28-LLD101: Low-Level Design Exercises
 
 This repository contains the solutions for the **SST28-LLD101** exercises, covering core design patterns and principles in Java.
 
@@ -10,6 +10,9 @@ This repository contains the solutions for the **SST28-LLD101** exercises, cover
 |--------|-------|-------------|
 | [`SOLID/`](./SOLID) | **SOLID Principles** | 10 refactoring exercises covering SRP, OCP, LSP, ISP, and DIP — each demonstrating how to identify and fix design violations. |
 | [`singleton-metrics/`](./singleton-metrics) | **Singleton Pattern** | Fix a broken Singleton in a metrics registry system — covering thread safety, serialization, reflection guards, and correct usage. |
+| [`flyweight-markers/`](./flyweight-markers) | **Flyweight Pattern** | Deduplicate map marker styles by extracting intrinsic state into shared immutable objects via a factory. |
+| [`immutable-tickets/`](./immutable-tickets) | **Immutability & Builder** | Refactor a leaky, mutable data model into a robust, validated, and thread-safe immutable structure using the Builder pattern. |
+| [`proxy-reports/`](./proxy-reports) | **Proxy Pattern** | Add Access Control and Lazy Loading (caching) to an expensive report loading system without modifying the original resource logic. |
 
 ---
 

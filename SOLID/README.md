@@ -90,12 +90,12 @@ Below you'll find a comprehensive breakdown of the initial design problems, my a
 - **🔍 Problem Before Refactoring**: Subclasses (like `WhatsAppSender`) had specific format requirements for inputs (like phone numbers needing to start with `+`). Substituting `WhatsAppSender` where a standard `NotificationSender` was expected resulted in run-time crashes on invalid phone numbers.
 - **💡 What is done (Solution)**: The same structural pre-check approach was applied.
 - **📝 Modified Existing Files**:
-  - `NotificationSender`: Modified to include the `supports(Notification n)` abstract method. Which prevents throwing runtime exceptions that break substitutability.
-- **✨ New Files Created & Their Purpose**:
-  - `WhatsAppSender`: Modified/Created to gracefully reject invalid data by returning `false` from `supports()`. Callers (like a dispatch loop) can now iterate through senders and only call `send()` if `supports()` returns true, ensuring perfect polymorphic substitutability without exceptions.
+  - `NotificationSender`: Modified to include the `supports(Notification n)` abstract method, which prevents throwing runtime exceptions that break substitutability.
+  - `Demo06`: Fixed to apply the `supports()` guard **consistently to all senders** — `email`, `sms`, and `wa` — before calling `send()`. Previously only `WhatsAppSender` was guarded; `email.send(n)` and `sms.send(n)` were called directly without a check. This meant if `n.phone` were `null`, `SmsSender` would throw `IllegalArgumentException`, violating the base contract. Now all three senders are treated uniformly.
+  - `WhatsAppSender`: Gracefully rejects invalid data by returning `false` from `supports()`.
 
 > 🎤 **SumUp (Ex 6):**
-> *"Finally, Exercise 6 dealt with notification senders where `WhatsAppSender` strictly needed phone numbers structured with a `+` symbol. Without a way to check this beforehand, treating all senders equally led to crashes when passing a local number to the WhatsApp sender. I implemented the exact same pattern: I added `supports()` to `NotificationSender`. The dispatch system now loops through all notification senders and asks 'do you support this format?' before calling `send()`, meaning we no longer get unexpected crashes and we fully respect LSP."* 
+> *"Exercise 6 dealt with notification senders where `WhatsAppSender` strictly needed phone numbers structured with a `+` symbol. Without a way to check this beforehand, treating all senders equally led to crashes when passing a local number to the WhatsApp sender. I implemented a `supports()` method on `NotificationSender` so each subtype can declare what it accepts. But there was a second issue: the original `Demo06` only applied the `supports()` guard to `WhatsAppSender` — `email.send()` and `sms.send()` were called directly without checking. This is inconsistent: if `SmsSender` could throw and `EmailSender` couldn't handle a null email, the base contract is broken. The fix was to guard all three senders with `if (sender.supports(n))` before calling `send()`, making every subtype uniformly substitutable without unexpected exceptions."* 
 
 ---
 

@@ -34,12 +34,20 @@ public class MetricsRegistry implements Serializable {
         return instance;
     }
 
+    public void increment(String key) {
+        counters.merge(key, 1L, Long::sum);
+    }
+
     public void setCount(String key, long value) {
         counters.put(key, value);
     }
 
     public long getCount(String key) {
         return counters.getOrDefault(key, 0L);
+    }
+
+    public Map<String, Long> getAll() {
+        return Map.copyOf(counters);
     }
 
     // FIX 4: Protect against deserialization creating a new instance

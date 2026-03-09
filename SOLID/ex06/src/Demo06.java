@@ -9,13 +9,17 @@ public class Demo06 {
         NotificationSender sms = new SmsSender(audit);
         NotificationSender wa = new WhatsAppSender(audit);
 
-        email.send(n);
-        sms.send(n);
+        if (email.supports(n)) {
+            email.send(n);
+        }
+
+        if (sms.supports(n)) {
+            sms.send(n);
+        }
 
         if (wa.supports(n)) {
             wa.send(n);
         } else {
-            // Replicate the exact expected original output error for the demo constraints
             System.out.println("WA ERROR: phone must start with + and country code");
             audit.add("WA failed");
         }

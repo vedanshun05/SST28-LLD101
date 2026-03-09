@@ -1,6 +1,8 @@
 # 🚀 SST28-LLD101: Low-Level Design Exercises
 
-This repository contains the solutions for the **SST28-LLD101** exercises, covering core design patterns and principles in Java.
+Solutions for the **[SST28-LLD101](https://github.com/kshitijmishra23/SST28-LLD101)** exercises, covering core design patterns and principles in Java.
+
+> 📌 **Exercises source**: [github.com/kshitijmishra23/SST28-LLD101](https://github.com/kshitijmishra23/SST28-LLD101)
 
 ---
 

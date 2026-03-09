@@ -15,6 +15,7 @@ Solutions for the **[SST28-LLD101](https://github.com/kshitijmishra23/SST28-LLD1
 | [`flyweight-markers/`](./flyweight-markers) | **Flyweight Pattern** | Deduplicate map marker styles by extracting intrinsic state into shared immutable objects via a factory. |
 | [`immutable-tickets/`](./immutable-tickets) | **Immutability & Builder** | Refactor a leaky, mutable data model into a robust, validated, and thread-safe immutable structure using the Builder pattern. |
 | [`proxy-reports/`](./proxy-reports) | **Proxy Pattern** | Add Access Control and Lazy Loading (caching) to an expensive report loading system without modifying the original resource logic. |
+| [`adapter-payments/`](./adapter-payments) | **Adapter Pattern** | Bridge two incompatible third-party payment SDKs behind a single `PaymentGateway` interface so `OrderService` is decoupled from all provider-specific logic. |
 
 ---
 

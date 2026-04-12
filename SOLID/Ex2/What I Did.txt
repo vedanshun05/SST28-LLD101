@@ -1,0 +1,21 @@
+New Interfaces (abstractions)
+---
+In order to decouple logic of tax, discount and storage from the main system, I have created 4 new interfaces.
+
+DiscountPolicy
+InvoiceFormatterInterface
+StorageInterface
+TaxCalculator
+
+Update of Implementations
+---
+As I created 4 new interfaces. I have to update their implementations in the existing classes. For this, I change the following files.
+
+TaxRules
+DiscountRules
+InvoiceFormatter
+FileStore
+
+Refactoring Main Systems
+---
+Finally, I change the CafeteriaSystem and made calls to the interfaces for doing their jobs and changed the Main class to make it work with the refactored code.

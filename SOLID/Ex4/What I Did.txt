@@ -1,0 +1,22 @@
+New Abstractions
+---
+I create two new files RoomPricing and AddOnPricing which are interfaces and they define how pricing works for any room or add-on
+
+New Implementations
+---
+I now create separate classes for each room type and add on respectively.
+
+SingleRoom
+DoubleRoom
+TripleRoom
+DeluxeRoom
+
+MessAddOnPricing
+LaundryAddOnPricing
+GymAddOnPricing
+
+Modifications and Updations
+---
+I modify the HostelFeeCalculator as now it will depend on the new interfaces and classes I have created instead of switches and if/else loops.
+
+I update the Main method and setup Registries for all the room and add on types. I then initialize the calculator to include the Map of the registries I just created.

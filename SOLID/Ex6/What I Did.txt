@@ -1,0 +1,9 @@
+Modifications
+---
+I modified the following files to following files
+
+EmailSender - does not silently truncate now
+NotificationSender - has an abstract method isValid which allows each sender to define their own data requirements
+SmsSender - now has validation check for phone number before sending it
+WhatsAppSender - does not have an exception now, handles incorrect numbers by logging instead of crashing
+Main - Doesn't have any try-catch blocks now, it just loops through all the senders

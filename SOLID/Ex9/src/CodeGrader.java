@@ -1,0 +1,6 @@
+public class CodeGrader implements ICodeGrader {
+    public int grade(Submission s, IRubric r) {
+        int base = Math.min(80, 50 + s.code.length() % 40);
+        return base + r.getBonus();
+    }
+}

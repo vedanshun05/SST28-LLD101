@@ -1,0 +1,15 @@
+New Files
+---
+I first create a new interface EligibilityRule which will be implemented in all the different criterias for placement selection.
+
+Then I create the following classes for each criteria.
+
+AttendanceRule
+CgrRule
+CreditsRule
+DisciplinaryRule
+
+Modifying Existing Files
+---
+I modify the ElegibilityEngine so it accepts a list of rules via its constructor and then iterates through them instead of doing everything inside the same class.
+I changed the Main class to initiate the EligibilityRule objects and then passed them as a list to the constructor.

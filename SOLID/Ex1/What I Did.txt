@@ -1,0 +1,21 @@
+Files Creation
+---
+I created 3 new files. This helps to fix the issue of SRP in the OnboardingService class.
+
+The InputParser takes the raw string input and parses it to extract data.
+
+The StudentValidator does the regex checks to validate if the input is correct.
+
+The OnboardingPrinter prints the data after the user has uploaded it. If there are any errors, it shows them as well.
+
+The StudentRepository decouples the service from the specific database implementation.
+
+Files Modified
+---
+As I created 3 new files, the existing files needed some modifications.
+
+I modified FakeDb as I have created StudentRepository to essentially remove the tight link it once had with OnboardingService. Now, we can replace it with a real DB in future easily.
+
+I modified the OnboardingService as I have created separate classes with do specific functions instead of doing all at once.
+
+I modified Main so that the refactored code works fine. Changed the methods and stuff.

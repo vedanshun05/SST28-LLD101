@@ -1,0 +1,9 @@
+Modifications
+---
+I changed the following files
+
+Exporter
+CsvExporter
+JsonExporter
+
+and ensured that it follows LSP and the subclasses do not corrupt data (in case of CSV) and handle nulls consistently (in case of JSON).
